@@ -1,0 +1,98 @@
+<div class="container">
+  <h3 class="text-center mt-3">Reactive Form</h3>
+  <div class="row">
+    <div class="col-lg-6 form-section">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label class="form-label">Email Address</label>
+          <input formControlName="email" [ngClass]="{'is-invalid':submitted && 'registerForm.controls.email.errors'}"
+            type="email" class="form-control" [(ngModel)]="gMail" placeholder="Enter Your Mail ID">
+          <div *ngIf="submitted && 'registerForm.controls.email.error'" class="text-danger">
+            <div *ngIf="submitted && 'registerForm.controls.email.error.required'">Email is required</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input formControlName="password"
+            [ngClass]="{'is-invalid':submitted && 'registerForm.controls.password.errors'}" type="password"
+            class="form-control" [(ngModel)]="pAssword" placeholder="Enter Your Password">
+          <div *ngIf="submitted && 'registerForm.controls.password.error'" class="text-danger">
+            <div *ngIf="submitted && 'registerForm.controls.password.error.required'">Password is required</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Phone Number</label>
+          <input formControlName="phone" type="number"
+            [ngClass]="{'is-invalid':submitted && 'registerForm.controls.phone.errors'}" class="form-control"
+            [(ngModel)]="pHone" placeholder="Enter Your Mobile number">
+          <div *ngIf="submitted && 'registerForm.controls.phone.error'" class="text-danger">
+            <div *ngIf="submitted && 'registerForm.controls.phone.error.required'">Phone is required</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">First Name</label>
+          <input formControlName="firstName"
+            [ngClass]="{'is-invalid':submitted && 'registerForm.controls.firstName.errors'}" type="text"
+            class="form-control" [(ngModel)]="fName" placeholder="Enter Your First Name">
+        </div>
+        <div *ngIf="submitted && 'registerForm.controls.firstName.error'" class="text-danger">
+          <div *ngIf="submitted && 'registerForm.controls.firstName.error.required'">First Name is required</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Last Name</label>
+          <input formControlName="lastName"
+            [ngClass]="{'is-invalid':submitted && 'registerForm.controls.lastName.errors'}" type="text"
+            class="form-control" [(ngModel)]="lName" placeholder="Enter Your Last Name">
+          <div *ngIf="submitted && 'registerForm.controls.lastName.error'" class="text-danger">
+            <div *ngIf="submitted && 'registerForm.controls.lastName.error.required'">Last Name is required</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Gender</label>
+          <input formControlName="gender" [ngClass]="{'is-invalid':submitted && 'registerForm.controls.gender.errors'}"
+            type="text" class="form-control" [(ngModel)]="gender"
+            placeholder="Enter Your Gender eg: Male, Female, Other">
+          <div *ngIf="submitted && 'registerForm.controls.gender.error'" class="text-danger">
+            <div *ngIf="submitted && 'registerForm.controls.gender.error.required'">Gender is required</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <button class="btn ">Send</button>
+        </div>
+
+      </form>
+    </div>
+    <div class="col-lg-6 mt-3" *ngIf="display">
+      <div class="form-detail">
+        <h4>Your Form Details</h4>
+        <div class="row">
+          <div class="col-lg-6">
+            <h4 class="form-control">{{fName}}</h4>
+          </div>
+          <div class="col-lg-6">
+            <h4 class="form-control">{{lName}}</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <h4 class="form-control">{{pHone}}</h4>
+          </div>
+          <div class="col-lg-6">
+            <h4 class="form-control">{{gMail}}</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <h4 class="form-control">{{pAssword}}</h4>
+          </div>
+          <div class="col-lg-6">
+            <h4 class="form-control">{{gender}}</h4>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
